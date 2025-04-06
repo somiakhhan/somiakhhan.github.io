@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Savings Calculator</title>
+  <style>
+    html {
+      font-size: 22px;
+    }
+    body {
+      background-image: url("https://cdn.pixabay.com/photo/2022/07/07/12/51/architecture-7307144_1280.png"); 
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: white;
+      text-align: center;
+      margin-top: 50px;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      position: absolute;
+      right: 20px;
+      top: 50px;
+      width: 300px;
+      padding: 20px;
+      background-color: rgba(0, 0, 255, 0.7); 
+      border-radius: 15px;
+    }
+
+    input {
+      font-size: 18px;
+      padding: 8px;
+      margin: 10px 0;
+      width: 90%;
+      border-radius: 5px;
+      border: none;
+    }
+
+    button {
+      font-size: 18px;
+      padding: 10px 20px;
+      border-radius: 10px;
+      border: none;
+      background-color: white;
+      color: blue;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    #result {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Savings Calculator</h2>
+
+    <input id="amount" type="number" placeholder="Starting amount"><br>
+    <input id="rate" type="number" placeholder="Interest rate (%)"><br>
+    <input id="years" type="number" placeholder="Years"><br>
+
+    <button onclick="calculate()">Calculate</button>
+
+    <p id="result"></p>
+  </div>
+
+  <script>
+    function calculate() {
+      let amount = parseFloat(document.getElementById("amount").value);
+      let rate = parseFloat(document.getElementById("rate").value);
+      let years = parseFloat(document.getElementById("years").value);
+
+      let total = amount * (1 + (rate / 100) * years);
+
+      document.getElementById("result").innerText = "Total savings: $" + total.toFixed(2);
+    }
+  </script>
+
+</body>
+</html>
