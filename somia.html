@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+  <meta charset="UTF-8">
+  <title>Canvas Background Select</title>
+  <style>
+    canvas {
+      border: 2px solid black;
+      display: block;
+      margin-top: 20px;
+    }
+    label, input, button {
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<div>
+  <label><input type="radio" name="bg" value="bg1" checked> Background 1</label>
+  <label><input type="radio" name="bg" value="bg2"> Background 2</label>
+  <label><input type="radio" name="bg" value="bg3"> Background 3</label>
+</div>
+
+<label>Move Character: <input type="range" min="0" max="450" value="225" id="slider"></label>
+
+<div>
+  <label><input type="checkbox" id="item1" checked> Item 1</label>
+  <label><input type="checkbox" id="item2" checked> Item 2</label>
+  <label><input type="checkbox" id="item3" checked> Item 3</label>
+</div>
+
+<div>
+  <button onclick="playSound('sound1')">Play Sound 1</button>
+  <button onclick="playSound('sound2')">Play Sound 2</button>
+  <button onclick="playSound('sound3')">Play Sound 3</button>
+</div>
+
+<canvas id="myCanvas" width="500" height="300"></canvas>
+
+
+<audio id="sound1" src="riser-wildfire-285209.mp3"></audio>
+<audio id="sound2" src="rainy-day-in-town-with-birds-singing-194011.mp3"></audio>
+<audio id="sound3" src="rock-cinematic-161648.mp3"></audio>
+
+<script>
+  const canvas = document.getElementById("myCanvas");
+  const ctx = canvas.getContext("2d");
+  const slider = document.getElementById("slider");
+  const radios = document.getElementsByName("bg");
+  const checkboxes = {
+    item1: document.getElementById("item1"),
+    item2: document.getElementById("item2"),
+    item3: document.getElementById("item3")
+  };
+
+  const backgrounds = {
+    bg1: "#f0f0f0",
+    bg2: "#add8e6",
+    bg3: "#90ee90"
+  };
+
+  function drawScene() {
+  ctx.fillStyle = backgrounds[document.querySelector('input[name="bg"]:checked').value];
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    const x = parseInt(slider.value);
+
+    ctx.fillStyle = "black";
+    ctx.fillRect(x, 150, 20, 20); 
+
+
+    if (checkboxes.item1.checked) {
+      ctx.fillStyle = "red";
+      ctx.fillRect(50, 50, 30, 30);
+    }
+    if (checkboxes.item2.checked) {
+      ctx.fillStyle = "blue";
+      ctx.fillRect(200, 50, 30, 30);
+    }
+    if (checkboxes.item3.checked) {
+      ctx.fillStyle = "green";
+      ctx.fillRect(350, 50, 30, 30);
+    }
+  }
+
+  function playSound(id) {
+    const sound = document.getElementById(id);
+    sound.currentTime = 0; 
+    sound.play();
+  }
+
+  document.querySelectorAll("input").forEach(input => {
+  input.addEventListener("input", drawScene);
+});
+
+</script>
+
+</body>
+</html>
