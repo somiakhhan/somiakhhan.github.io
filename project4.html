@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two Charts Example</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div id="main-container">
+        <h1>ChartJS is COOL!</h1>
+        
+        <div id="chart-container">
+            <canvas id="line-chart"></canvas>
+        </div>
+
+        <div id="chart-container">
+            <canvas id="bar-chart"></canvas>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script>
+        const data = {
+            labels: ['Apples', 'Bananas', 'Cherries', 'Dates', 'Pineapple', 'Figs', 'Grapes'],
+            datasets: [{
+                label: 'Favorite Fruits by Hat A',
+                data: [12, 19, 3, 5, 2, 3, 7],
+                borderColor: 'blue',
+                backgroundColor: 'lightblue',
+                tension: 0.3
+            }]
+        };
+
+        const ctxLine = document.getElementById('line-chart').getContext('2d');
+        new Chart(ctxLine, {
+            type: 'line',
+            data: data,
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Line Chart: Fruit Popularity 1'
+                    }
+                }
+            }
+        });
+
+        const ctxBar = document.getElementById('bar-chart').getContext('2d');
+        new Chart(ctxBar, {
+            type: 'bar',
+            data: data,
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Bar Chart: Fruit Popularity 2'
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
