@@ -1,0 +1,16 @@
+Somia's Flowers - PWA App
+
+Description:
+This is a Progressive Web App which allows users to learn about multiple different flowers (Carnations, Peonies, and Tulips) visually through images, text, as well as audio. Users click a button which views a flower on the canvas, user can hear background audio, and learn with descriptions.
+
+Features:
+- Canvas image display
+- Audio playback
+- PWA install option
+- Offline access
+- Mobile-responsive design
+
+How to Install:
+- Open index.html in your browser.
+- On mobile: Tap "Add to Home Screen" via browser options.
+- On desktop: Click "Install App" when prompted.

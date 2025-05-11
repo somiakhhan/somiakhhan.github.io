@@ -1,0 +1,16 @@
+{
+    "name": "Somia's Flowers",
+    "short_name": "Flowers",
+    "start_url": "index.html",
+    "display": "standalone",
+    "background_color": "#ffc0ef",
+    "theme_color": "#ffc0ef",
+    "icons": [
+      {
+        "src": "icon-512.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ]
+  }
+  

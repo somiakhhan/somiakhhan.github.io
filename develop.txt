@@ -1,0 +1,20 @@
+Developer Notes – Adding New Flowers to flowers.json
+
+1. Open flowers.json in a code editor.
+
+2. Add a new entry in the format:
+{
+  "Sunflowers": {
+    "title": "Sunflowers",
+    "text": "Sunflowers symbolize warmth and loyalty...",
+    "image": "sunflower.jpg",
+    "audio": "sunflower.mp3"
+  }
+}
+
+3. Save the new image file (e.g., sunflower.jpg) and audio file (e.g., sunflower.mp3) in the root directory.
+
+4. In index.html, add a new button:
+<button onclick="logMood('Sunflowers')">Sunflowers</button>
+
+The new flower is now integrated dynamically via JSON.
